@@ -114,7 +114,7 @@ static int parser_readStemStepFromFile(FILE *f, char **stepString)
 			bracketCount--;
 
 		// Copy the char read to the string, except puntuaction and control characters
-		if(!isspace(ch) && (ch!='{')) {
+		if(!isascii(ch) || (!isspace(ch) && (ch!='{'))) {
 			if(ch == '}') { 	// Closing bracket: indicates end of a group
 				if(line[idx-1]!='|') {
 					line[idx++] = ','; // mark the end with a pipe '|'
