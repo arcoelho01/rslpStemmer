@@ -81,6 +81,12 @@
 	#define infoMsg(fmt, args...) 	{ }		
 #endif
 
+/**
+ * \brief	Allow the code to be compiled in a C++ compiler, like C++ Builder
+ */
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 /* -------------------------------------------------------------------------- */
 /**
@@ -166,5 +172,9 @@ void rslpUnloadStemmer(rslp_stemmer_main_struct *stemmerMainStruct);
 
 rslp_stemmer_main_struct rslpMainStruct;	//!< Stemmer main structure
 FILE *rslpInfoFile;	//!< Stemmer file for write program info
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

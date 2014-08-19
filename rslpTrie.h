@@ -33,6 +33,13 @@
 #define RSLP_TRIE_NUM_LETTERS		RSLP_TRIE_NUM_ASCII_LETTERS + RSLP_TRIE_NUM_ISO_LETTERS //!< Número total de letras
 
 /**
+ * \brief	Allow the code to be compiled in a C++ compiler, like C++ Builder
+ */
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+/**
  * \brief	Typedef for a structure with a node for a TRIE tree
  */
 typedef struct trieNode TRIE_NODE;
@@ -98,6 +105,10 @@ TRIE_NODE* trieSearchWord(TRIE_NODE *rootNode, char *word);
  * \return	Pointer to the node, or NULL in case of error
  */
 TRIE_NODE *trieNewNode(unsigned long *trieNumNodes, unsigned long *trieMemUsed);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif
 

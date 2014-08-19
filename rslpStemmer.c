@@ -1403,7 +1403,7 @@ void rslpLoadStemmer(rslp_stemmer_main_struct *stemmerMainStruct, char *configFi
 {
 	// open file to write info messages
 	rslpInfoFile = fopen("rslpinfo.txt","wt");
-	infoMsg("RSLP Stemmer loading...\n");
+	infoMsg("%s\n", "RSLP Stemmer loading...");
 
 	// Try to open a configuration file
 	stemmer_loadConfigFile(configFileName, &stemmerMainStruct->rslpProcFlags, &stemmerMainStruct->rslpFileNames);
@@ -1445,11 +1445,11 @@ void rslpLoadStemmer(rslp_stemmer_main_struct *stemmerMainStruct, char *configFi
 		}
 		else {
 			// Couldn't load names from file, so the dictionary is turned off
-			infoMsg("Named Entities dictionary is off.\n");
+			infoMsg("%s\n", "Named Entities dictionary is off.");
 		}
 	}
 	else
-		infoMsg("Named Entities dictionary is off.\n");
+		infoMsg("%s\n", "Named Entities dictionary is off.");
 
 	return;
 }
@@ -1494,7 +1494,7 @@ void rslpUnloadStemmer(rslp_stemmer_main_struct *stemmerMainStruct)
 	for(idx = 0; idx < stemmerMainStruct->rslpStemmerTotalSteps; idx++)
 		stemmer_freeStemStructure(stemmerMainStruct->rslpStemmerSteps[idx]);
 
-	infoMsg("RSLP Stemmer unloaded.\n");
+	infoMsg("%s\n", "RSLP Stemmer unloaded.");
 	
 	// Closes the debug file
 	if(rslpInfoFile != NULL)
