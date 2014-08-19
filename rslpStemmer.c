@@ -600,7 +600,7 @@ static void stemmer_loadFlowFile(stem_step_seq_struct *readedFlow[], int *numSte
 					idxFlow++;
 				}
 				else { 
-					debug("ERROR reading flow structure from file\n");
+					debug("%s\n", "ERROR reading flow structure from file");
 					done = 1;
 				}
 			}
@@ -785,7 +785,7 @@ static void stemmer_freeStemStructure(stem_step_struct *ruleStruct)
 	free(ruleStruct->rules);
 	free(ruleStruct);
 
-	debug("Memory freed.\n");
+	debug("%s\n", "Memory freed.");
 
 	return;
 }
@@ -1015,7 +1015,7 @@ static int stemmer_stemApplyRule(stem_step_struct *step, char *word)
 			check |= stemmer_ends(word, step->endWords[indEndWords]);
 		}
 		if(!check) {
-			debug("Returning 0 -> doesn´t end with the required strings\n");
+			debug("%s\n", "Returning 0 -> doesn´t end with the required strings");
 
 			return 0; // Doesn´t end in any of strings required
 		}
@@ -1150,8 +1150,8 @@ static int stemmer_applyRulesToWord(char *word, rslp_stemmer_main_struct *rslpMa
 			rslpMainStruct->rslpStemmerSteps, rslpMainStruct->rslpStemmerTotalSteps);
 	
 	// Just for precaution...
-	if(stepIdx < 0) {
-		debug("erro!\n");
+	if(stepIdx <0) {
+		debug("%s\n", "erro!");
 		return 0;
 	}
 	
@@ -1220,7 +1220,7 @@ int dict_initDictionary(stem_dict_struct *rslpDict, int maxDictionarySize)
 	
 	if(!rslpDict->dictRoot) {
 		// Failed to created the dictionary
-		debug("Unable to create the main dictionary node. Dictionary disabled.\n");
+		debug("%s\n", "Unable to create the main dictionary node. Dictionary disabled.");
 		return 0;
 	}
 	else {
